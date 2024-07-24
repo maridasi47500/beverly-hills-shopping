@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Depot</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+      <%=image_tag "logo.svg",alt:"the pragmatic bookshelf"%>
+      <h1><%=@page_title%></h1>
+      </header>
+      <section>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/questions">questions</a></li>
+            <li><a href="/news">contact</a></li>
+          </ul>
+        </nav>
+      </section>
+
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
+  </body>
+</html>

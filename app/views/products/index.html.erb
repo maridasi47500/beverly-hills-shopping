@@ -1,0 +1,56 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Products" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Products</h1>
+    <%= link_to "New product", new_product_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+<table id="products" class="min-w-full"> <tfoot>
+      <tr><td>
+          <div>
+            <%=link_to "new product",new_product_path%>
+          </div>
+        </td>
+      </tr>
+      </tfoot>
+      <tbody>
+    <% @products.each do |product| %>
+      <tr style="background: <%=cycle("green","white")%>;">
+        <td>
+          <%=image_tag(product.image_url, class: 'w-40')%>
+        </td>
+        <td>
+          <h1>
+            <%=product.title%>
+          </h1>
+          <p>
+          <%=truncate(strip_tags(product.description),length:80)%>
+          </p>
+        </td>
+
+
+        <td>
+      <ul>
+      <li>
+        <%= link_to "Show this product", product, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </li>
+      <li>
+        <%= link_to "edit", edit_product_path(product), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </li>
+      <li>
+        <%= button_to "delete", product_path(product), method: :delete,class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </li>
+      </ul>
+
+          
+        </td>
+        </tr>
+
+    <% end %>
+      </tbody>
+  </table>
+</div>

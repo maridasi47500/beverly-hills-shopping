@@ -1,0 +1,38 @@
+<div id="<%= dom_id cart %>">
+  <h2>
+    your pragmatic card
+  </h2>
+  <table>
+    <%cart.line_items.each do |item|%>
+      <tr>
+      <td>
+        <%=item.product.quantity%>
+      </td>
+      <td>
+        &times;
+      </td>
+      <td>
+
+        <%=item.product.title%>
+      </td>
+      <td>
+
+        <%=nummber_to_currency item.total_price%>
+      </td>
+
+      </tr>
+    <%end%>
+    <tfoot>
+      <tr>
+        <th>
+          total:
+        </th>
+        <td>
+        <%=nummber_to_currency cart.total_price%>
+
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <%=button_to "empty cart",cart,method: :delete%>
+</div>
