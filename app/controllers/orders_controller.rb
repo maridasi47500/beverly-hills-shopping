@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :authorize, only: %i[ new create ]
+  include CurrentCart
   before_action :set_order, only: %i[ show edit update destroy ]
   before_action :set_cart, only: %i[ new create]
   before_action :ensureisntempty, only: %i[ new ]
@@ -25,8 +26,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-    @order.add_line_items_from_cart(@cart)
-
+    @order.add_line_items_for_cart(@cart)
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:card_id])
@@ -68,13 +68,11 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
-     ​def ensure_cart_isnt_empty​
-             ​if @cart.line_items.empty?​
-              redirect_to store_index_url, notice:'Your cart is empty'​
-             end​
-            end
-
-    # Only allow a list of trusted parameters through.
+   def ensureisntempty
+     if @cart.line_items.empty?
+      redirect_to store_index_url, notice:'Your cart is empty'
+     end
+   end
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end

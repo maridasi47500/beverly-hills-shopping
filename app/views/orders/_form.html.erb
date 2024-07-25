@@ -28,7 +28,7 @@
 
   <div class="my-5">
     <%= form.label :pay_type %>
-    <%= form.:pay_type, Order.pay_types.keys,{ prompt: 'Select a payment method',class: 'input-field' %>
+    <%= form.select :pay_type, Order.pay_types.keys,{ prompt: 'Select a payment method',class: 'input-field'} %>
   </div>
 
   <div class="inline">
