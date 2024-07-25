@@ -19,12 +19,26 @@ main {
  */
 
 	nav {
-		    left: 0;
-		        position: absolute;
-			    width: 300px;
-			        top: 100px;
+		width:100%;
 			}
 			section {
+		    left: 0;
+			    width: 300px;
 				top:100px;
 				position:absolute;
 			}
+			table {
+				    width: 80%;
+			    }
+			    .MyTotalprice1 {
+				    position:relative;
+			    }
+			    .Totalprice1 {
+				    position:absolute;
+				    right:0;
+			    }
+			    form.locale {
+				        float: right;
+					    /* bottom: 0; */
+					    /* vertical-align: bottom; */
+				}
