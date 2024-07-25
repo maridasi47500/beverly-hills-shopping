@@ -1,0 +1,17 @@
+en:
+  layouts:
+    application:
+      title: "la bibliothèque pragmatique"
+      Home: "accueil"
+      questions: "questions"
+      news: "informations"
+      contact: "contact"
+  store:
+    index:
+      title_html: "votre catalogue pragmatique"
+      add_html: "ajouter au panier"
+  carts:
+    cart:
+      title: "votre panier"
+      empty: "panier vide"
+      checkout: "payer"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Depot</title>
+    <title>Depot Pragprog Books Online Store </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,16 +13,33 @@
 
   <body>
     <header>
+        <aside data-controller=​'locale'​>
+                   ​<%= form_tag store_index_path,class:'locale' do%>​
+                     ​<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),onchange: 'this.form.submit()'%>​
+                     ​<%= submit_tag 'submit',data:{'locale-target' =>'submit'}%>​
+                   ​<%end%>​
+                 </aside>
       <%=image_tag "logo.svg",alt:"the pragmatic bookshelf"%>
       <h1><%=@page_title%></h1>
       </header>
       <section>
         <nav>
+          <%=render partial: 'layouts/cart',locals: {cart: @cart}%>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/questions">questions</a></li>
-            <li><a href="/news">contact</a></li>
+            <li><a href="/"><%=t('.Home')%></a></li>
+            <li><a href="/questions"><%=t('.questions')%></a></li>
+            <li><a href="/news"><%=t('.new')%></a></li>
+            <li><a href="/news"><%=t('.contact')%></a></li>
           </ul>
+          <%if session[:user_id]%>
+            <hr>
+          <ul>
+            <li><%=link_to "orders", orders_path%></li>
+            <li><%=link_to "products", products_path%></li>
+            <li><%=link_to "users", users_path%></li>
+            <li><%=button_to "logout", logout_path,method: :delete%></li>
+          </ul>
+          <%end%>
         </nav>
       </section>
 

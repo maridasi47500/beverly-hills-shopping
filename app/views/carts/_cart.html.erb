@@ -1,6 +1,6 @@
 <div id="<%= dom_id cart %>">
   <h2>
-    your pragmatic card
+    <%=t(".title")%>
   </h2>
   <table>
     <%cart.line_items.each do |item|%>
@@ -34,6 +34,6 @@
       </tr>
     </tfoot>
   </table>
-  <%=button_to "empty cart",cart,method: :delete%>
-  <%=button_to "checkout",new_order_path,method: :get%>
+  <%=button_to t(".empty"),cart,method: :delete%>
+  <%=button_to t(".checkout"),new_order_path,method: :get%>
 </div>
