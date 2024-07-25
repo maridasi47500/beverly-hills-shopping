@@ -1,0 +1,27 @@
+<div>
+  <h1 class="font-bold text-4xl">Sessions#new</h1>
+  <p>Find me in app/views/sessions/new.html.erb</p>
+</div>
+​<%if notice.present?%>​
+​      <p class='py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium​
+               ​  ​              rounded-lg inline-block'​ id='notice'>
+​        ​<%= notice %>​
+​      </p>
+​    ​<%end%>
+<%=form_tag do%>
+  <h2>
+    please log in
+
+  </h2>
+  <div>
+    <%=label_tag :name%>
+    <%=text_field_tag :name,params[:name]%>
+  </div>
+  <div>
+    <%=label_tag :password%>
+    <%=password_field_tag :password,params[:password]%>
+  </div>
+  <div class="actions">
+    <%=submit_tag "login"%>
+  </div>
+<%end%>
