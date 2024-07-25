@@ -8,6 +8,9 @@ class Cart < ApplicationRecord
       throw :abort
     end
   end
+  def total_price
+      line_items.sum { |item| item.total_price}
+  end
   def add_product(product)
     current_item=line_items.find_by(product_id: product.id)
     if current_item
@@ -17,7 +20,5 @@ class Cart < ApplicationRecord
     end
     current_item
   end
-    ​def​ ​total_price​
-    ​    line_items.sum { |item| item.total_price}
-    ​end
+
 end

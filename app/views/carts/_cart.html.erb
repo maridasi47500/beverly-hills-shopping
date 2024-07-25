@@ -6,7 +6,7 @@
     <%cart.line_items.each do |item|%>
       <tr>
       <td>
-        <%=item.product.quantity%>
+        <%=item.quantity%>
       </td>
       <td>
         &times;
@@ -17,7 +17,7 @@
       </td>
       <td>
 
-        <%=nummber_to_currency item.total_price%>
+        <%=number_to_currency item.total_price%>
       </td>
 
       </tr>

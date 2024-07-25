@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authorize
   before_action :seti18n
+  before_action :authorize
   protected
   def seti18n
-    parsed=locale=params[:locale]
+    parsed_locale=params[:locale]
     if params[:locale]
       if I18n.available_locales.map(&:to_s).include?(parsed_locale) 
         I18n.locale=parsed_locale

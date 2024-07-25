@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -13,7 +13,7 @@
 
   <body>
     <header>
-        <aside data-controller=​'locale'​>
+        <aside data-controller='locale'​>
                    ​<%= form_tag store_index_path,class:'locale' do%>​
                      ​<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),onchange: 'this.form.submit()'%>​
                      ​<%= submit_tag 'submit',data:{'locale-target' =>'submit'}%>​
