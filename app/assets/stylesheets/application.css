@@ -1,4 +1,8 @@
-/*
+main {
+	    left: 300px;
+	        position: absolute;
+		    top: 100px;
+		    }/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,3 +17,14 @@
  *= require_tree .
  *= require_self
  */
+
+	nav {
+		    left: 0;
+		        position: absolute;
+			    width: 300px;
+			        top: 100px;
+			}
+			section {
+				top:100px;
+				position:absolute;
+			}
